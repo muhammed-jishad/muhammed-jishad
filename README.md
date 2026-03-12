@@ -24,12 +24,6 @@ Backend
 REST APIs  
 JWT Authentication  
 Webhooks  
-
-Mobile Services
-
-:contentReference[oaicite:0]{index=0}  
-:contentReference[oaicite:1]{index=1}  
-
 Cloud
 
 AWS EC2  
