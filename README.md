@@ -1,73 +1,65 @@
-# Hi, I'm Muhammed Jishad 👋
+# Muhammed Jishad
 
-Flutter Mobile Application Developer with 4+ years of experience building scalable cross-platform applications.  
-Experienced in mobile architecture, REST API integration, and building production-ready mobile apps.
+Flutter Mobile Application Developer with 4+ years of experience building scalable mobile applications and backend systems.
+
+I specialize in Flutter architecture, API-driven applications, and real-time mobile systems.
 
 ---
 
-## 🚀 Tech Stack
+## Tech Stack
 
-**Languages**
-
-Dart | Python | PHP | JavaScript | SQL
-
-**Mobile Development**
+Mobile Development
 
 Flutter  
-Cross-platform mobile applications  
-Android integration  
+Dart  
+Android Integration  
 
-**State Management**
+State Management
 
 BLoC  
 GetX  
 
-**Backend**
+Backend
 
 REST APIs  
-API integration  
 JWT Authentication  
+Webhooks  
 
-**Mobile Features**
-
-Push Notifications  
-Platform Channels  
-Local Storage (Hive)
-
-**Mobile Services**
+Mobile Services
 
 :contentReference[oaicite:0]{index=0}  
 :contentReference[oaicite:1]{index=1}  
 
-**Cloud**
+Cloud
 
 AWS EC2  
 AWS Lightsail  
-Linux  
 
-**Database**
+Database
 
 MySQL  
-Query optimization  
-Indexing  
+Hive local storage  
 
 ---
 
-# 📱 Featured Projects
+## Architecture & Engineering Skills
+
+Clean Architecture  
+Modular mobile architecture  
+API-driven application design  
+Performance optimization  
+Crash monitoring  
+Analytics tracking  
+
+---
+
+# Featured Projects
 
 ## Flutter Finance Tracker
 
-A mobile app for tracking expenses, budgets, and financial analytics.
+A scalable mobile finance application demonstrating data visualization, local storage, and analytics tracking.
 
-Features:
-
-- Expense tracking
-- Budget management
-- Data visualization
-- Local storage
-- Analytics tracking
-
-Tech Stack:
+Tech
 
 Flutter  
 REST APIs  
@@ -78,73 +70,46 @@ Firebase services
 
 ## Flutter Real-Time Chat App
 
-A real-time chat application demonstrating scalable mobile architecture.
+Real-time messaging application using WebSockets and modern mobile architecture.
 
-Features:
+Features
 
-- JWT authentication
-- Real-time messaging
-- Push notifications
-- Crash monitoring
-- Analytics tracking
-
-Tech Stack:
-
-Flutter  
-WebSockets  
-BLoC  
-Firebase services  
+JWT authentication  
+Push notifications  
+Crash monitoring  
 
 ---
 
 ## Flutter E-Commerce App
 
-A scalable mobile e-commerce application.
+Mobile e-commerce platform demonstrating scalable architecture and payment integration.
 
-Features:
+Features
 
-- Product catalog
-- Cart management
-- Payment integration
-- Order tracking
-
-Tech Stack:
-
-Flutter  
-REST APIs  
-State management  
+Product catalog  
+Cart management  
+Payment integration  
 
 ---
 
-# 🏗 Architecture & Engineering Practices
+## System Design Experiment
 
-Clean Architecture  
-Modular mobile architecture  
-API-driven mobile development  
-Performance optimization  
-Crash monitoring  
-Analytics tracking  
+Exploring scalable architecture patterns for mobile and backend integration.
 
 ---
 
-# 📊 GitHub Stats
+## GitHub Stats
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=muhammed-jishad&show_icons=true)
+![Stats](https://github-readme-stats.vercel.app/api?username=muhammed-jishad&show_icons=true)
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=muhammed-jishad&layout=compact)
-
----
-
-# 📫 Connect With Me
-
-Email: jishadhamd@gmail.com  
-
-LinkedIn:  
-https://linkedin.com/in/muhammed-jishad  
-
-GitHub:  
-https://github.com/muhammed-jishad
+![Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=muhammed-jishad&layout=compact)
 
 ---
 
-⭐ Always interested in building scalable mobile applications and exploring new technologies in Flutter development.
+# Connect With Me
+
+Email  
+jishadhamd@gmail.com
+
+LinkedIn  
+https://linkedin.com/in/muhammed-jishad
