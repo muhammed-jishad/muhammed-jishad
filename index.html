@@ -332,11 +332,10 @@ footer{position:relative;padding:40px 20px calc(env(safe-area-inset-bottom,0px) 
 
   <!-- POSTS -->
   <section id="posts" class="veil">
-    <div class="wrap">
+    <!-- <div class="wrap">
       <div class="flex flex-wrap items-end justify-between gap-4 ui">
         <div style="max-width:620px">
           <h2 class="h2">Featured LinkedIn posts</h2>
-          <p class="lede">Short write-ups on the problems behind the projects: locking, payments and database speed.</p>
         </div>
         <div class="railctl">
           <button class="iconbtn" type="button" id="rail-prev" aria-label="Previous posts"></button>
@@ -344,7 +343,7 @@ footer{position:relative;padding:40px 20px calc(env(safe-area-inset-bottom,0px) 
         </div>
       </div>
       <div class="rail ui" id="post-rail" tabindex="0" aria-label="LinkedIn posts"></div>
-    </div>
+    </div> -->
   </section>
 
   <!-- CONTACT -->
@@ -374,9 +373,8 @@ footer{position:relative;padding:40px 20px calc(env(safe-area-inset-bottom,0px) 
           </div>
           <div class="flex flex-wrap items-center gap-3">
             <button class="btn btn-primary" type="submit"><span data-icon="send" data-size="17"></span>Send message</button>
-            <button class="btn btn-ghost" type="button" id="copy-email"><span data-icon="copy" data-size="17"></span>Copy email address</button>
+            <!-- <button class="btn btn-ghost" type="button" id="copy-email"><span data-icon="copy" data-size="17"></span>Copy email address</button> -->
           </div>
-          <p class="formnote" id="form-note" aria-live="polite">Sending opens your email app with the message filled in.</p>
         </form>
       </div>
       <div class="socials ui" id="socials"></div>
@@ -407,7 +405,7 @@ const CONFIG = {
   name: 'Muhammed Jishad P',
   email: 'jishadhamd@gmail.com',
   github: 'https://github.com/muhammed-jishad',
-  linkedin: 'https://www.linkedin.com/',   // replace with your profile or post URLs
+  linkedin: 'https://www.linkedin.com/in/muhammed-jishad/',   // replace with your profile or post URLs
   twitter: 'https://x.com/',               // replace with your handle
   website: 'https://muhammed-jishad.vercel.app',
   cvFilename: 'Muhammed_Jishad_P_CV.pdf'
@@ -437,12 +435,12 @@ const PROJECTS = [
 
      { title:'ERP-Integrated Loyalty App', hue:36,
     desc:'Cross-platform app for a Saudi enterprise client with real-time loyalty points, transaction history and promotional offers. Live on Google Play and the App Store.',
-    stack:['Flutter','PHP','MySQL','AWS'], image:null },
+    stack:['Flutter','PHP','MySQL','AWS'], image:null,appStore:'https://apps.apple.com/in/app/huda-hyper/id6762543505',playStore:'https://play.google.com/store/apps/details?id=com.sunerp.loyality.mina&pcampaignid=web_share'},
 ];
 
 // Sample posts: swap in your real snippets, counts and URLs.
 const POSTS = [
-  { hue:174, text:'How we stopped double-booking seats: lock the rows inside one short transaction, not the whole show. A walk through FOR UPDATE and what we measured.', likes:248, comments:31, url:CONFIG.linkedin },
+  { hue:174, text:'How we stopped double-booking seats: lock the rows inside one short transaction, not the whole show. A walk through FOR UPDATE and what we measured.', likes:248, comments:31, url:CONFIG.linkedin, embed: 'https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7424395345520037888' },
   { hue:36,  text:'Idempotency keys in plain terms: why a retried payment request should return the first result instead of charging again.', likes:192, comments:24, url:CONFIG.linkedin },
   { hue:268, text:'Our API was slow because of N+1 queries. Profiling, redesigned queries and the right indexes brought it back down.', likes:167, comments:18, url:CONFIG.linkedin },
   { hue:204, text:'Shipping a loyalty app to both stores for a Saudi ERP client: what I would do the same way again.', likes:121, comments:12, url:CONFIG.linkedin }
@@ -605,7 +603,7 @@ function renderContent() {
       ${p.appStore && p.appStore !== '#' ? `
         <a class="btn btn-ghost btn-sm"
            href="${p.appStore}" target="_blank" rel="noopener noreferrer">
-          ${icon('apple', 15)} App Store
+          <svg fill="#000000" width="20px" height="20px" viewBox="0 0 24 24" id="app-store" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color"><path id="primary" d="M22,17a1,1,0,0,1-1,1H19.48l1.39,2.51a1,1,0,0,1-.38,1.36A1,1,0,0,1,20,22a1,1,0,0,1-.87-.51L13.42,11.21a1,1,0,0,1,1.74-1L18.37,16H21A1,1,0,0,1,22,17Zm-9-1H7.92l7-12.51a1,1,0,0,0-1.74-1L12,4.54l-1.13-2a1,1,0,1,0-1.74,1L10.86,6.6,5.63,16H3a1,1,0,0,0,0,2H4.52L3.13,20.51a1,1,0,0,0,.38,1.36A1,1,0,0,0,4,22a1,1,0,0,0,.87-.51L6.81,18H13a1,1,0,0,0,0-2Z" style="fill: rgb(0, 0, 0);"></path></svg> App Store
         </a>` : ''}
 
       ${p.playStore && p.playStore !== '#' ? `
@@ -626,21 +624,63 @@ function renderContent() {
   $('#skill-chips').innerHTML = chips.map((c, i) => `<span class="chip${i % 4 === 3 ? ' warm' : ''}">${c}</span>`).join('');
   $('#mini-timeline').innerHTML = CV.jobs.map(j => `<div><b style="font-weight:600">${esc(j.short)}</b><span>${esc(j.when)}</span></div>`).join('');
 
-  // Posts
-  $('#post-rail').innerHTML = POSTS.map(p => `<article class="post glass">
-      <img src="${placeholderImage(600, 314, p.hue, 'post thumbnail')}" alt="" width="600" height="314" loading="lazy">
-      <div class="pb"><p>${esc(p.text)}</p>
-        <div class="meta"><span>${icon('like', 15)}${p.likes}</span><span>${icon('comment', 15)}${p.comments}</span></div>
-        <a class="btn btn-ghost btn-sm" style="align-self:flex-start" href="${p.url}" target="_blank" rel="noopener">View on LinkedIn ${icon('external', 15)}</a>
-      </div></article>`).join('');
-  $('#rail-prev').innerHTML = icon('left', 18);
-  $('#rail-next').innerHTML = icon('right', 18);
-  const step = () => Math.min(360, innerWidth * .84) + 20;
-  $('#rail-prev').addEventListener('click', () => $('#post-rail').scrollBy({left: -step(), behavior: 'smooth'}));
-  $('#rail-next').addEventListener('click', () => $('#post-rail').scrollBy({left: step(), behavior: 'smooth'}));
+//   // Posts
+ 
+// $('#post-rail').innerHTML = POSTS.map(p => `
+//   <article class="post glass">
+
+//     ${
+//       p.embed
+//         ? `<iframe
+//             src="${p.embed}"
+//             height="399"
+//             width="100%"
+//             frameborder="0"
+//             allowfullscreen
+//             title="LinkedIn post"
+//             loading="lazy"
+//             class="linkedin-embed">
+//           </iframe>`
+//         : `<img
+//             src="${placeholderImage(600, 314, p.hue, 'post thumbnail')}"
+//             alt="Post thumbnail"
+//             width="600"
+//             height="314"
+//             loading="lazy">`
+//     }
+
+//     <div class="pb">
+//       <p>${esc(p.text)}</p>
+
+//       <div class="meta">
+//         <span>${icon('like', 15)}${p.likes}</span>
+//         <span>${icon('comment', 15)}${p.comments}</span>
+//       </div>
+
+//       <a
+//         class="btn btn-ghost btn-sm"
+//         style="align-self:flex-start"
+//         href="${p.url}"
+//         target="_blank"
+//         rel="noopener">
+//         View on LinkedIn ${icon('external', 15)}
+//       </a>
+//     </div>
+
+//   </article>
+// `).join('');
+
+// $('#rail-prev').innerHTML = icon('left', 18);
+// $('#rail-next').innerHTML = icon('right', 18);
+
+const step = () => Math.min(360, innerWidth * .84) + 20;
+
+
+  // $('#rail-prev').addEventListener('click', () => $('#post-rail').scrollBy({left: -step(), behavior: 'smooth'}));
+  // $('#rail-next').addEventListener('click', () => $('#post-rail').scrollBy({left: step(), behavior: 'smooth'}));
 
   // Socials
-  const soc = [['linkedin', CONFIG.linkedin, 'LinkedIn'], ['github', CONFIG.github, 'GitHub'], ['mail', 'mailto:' + CONFIG.email, 'Email'], ['twitter', CONFIG.twitter, 'Twitter / X']];
+  const soc = [['linkedin', CONFIG.linkedin, 'LinkedIn'], ['github', CONFIG.github, 'GitHub'], ['mail', 'mailto:' + CONFIG.email, 'Email']];
   $('#socials').innerHTML = soc.map(([i, u, l]) => `<a class="social" href="${u}" ${u.startsWith('http') ? 'target="_blank" rel="noopener"' : ''} aria-label="${l}" title="${l}">${icon(i, 22)}</a>`).join('');
 
   hydrateIcons();
@@ -751,7 +791,7 @@ function setupForm() {
     note.appendChild(document.createElement('br')); note.appendChild(btn);
     try { window.location.href = url; } catch (err) { /* handled by copy fallback */ }
   });
-  $('#copy-email').addEventListener('click', async () => toast(await copyText(CONFIG.email) ? 'Email address copied.' : CONFIG.email));
+  // $('#copy-email').addEventListener('click', async () => toast(await copyText(CONFIG.email) ? 'Email address copied.' : CONFIG.email));
 }
 
 /* ==================================================================
@@ -782,7 +822,7 @@ const ACTIONS = {
   lamp:    () => goTo('contact'),
   mug:     () => { toggleTheme(); if (scene3d) scene3d.wobbleMug(); }
 };
-const LABELS = { laptop: 'Laptop: projects', monitor: 'Monitor: projects', notepad: 'Notepad: open CV', phone: 'Phone: LinkedIn posts', lamp: 'Lamp: contact', mug: 'Mug: switch theme' };
+const LABELS = { laptop: 'Laptop: projects', monitor: 'Monitor: projects', notepad: 'Notepad: open CV', lamp: 'Lamp: contact', mug: 'Mug: switch theme' };
 function goTo(id) { const el = document.getElementById(id); if (el) el.scrollIntoView({ block: 'start' }); }
 
 // Camera waypoints: p = position, l = look-at, s = horizontal view shift (desktop), sy = vertical shift (portrait)
